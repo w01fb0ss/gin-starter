@@ -46,27 +46,27 @@ type dbConfig struct {
 }
 
 func initFunc() error {
-	conf := viper.Get(`Db`)
+	conf := viper.Get(`databases`)
 	confMap, ok := conf.([]interface{})
 	if !ok || len(confMap) == 0 {
-		return fmt.Errorf("请确保 `Db` 模块的配置符合要求")
+		return fmt.Errorf("请确保 `databases` 模块的配置符合要求")
 	}
 
 	isDefault := len(confMap) == 1
 	for _, v := range confMap {
 		dbConfMap, ok := v.(map[string]interface{})
 		if !ok {
-			return fmt.Errorf("请确保 `Db` 模块的配置符合要求")
+			return fmt.Errorf("请确保 `databases` 模块的配置符合要求")
 		}
 
 		jsonData, err := json.Marshal(dbConfMap)
 		if err != nil {
-			return fmt.Errorf("请确保 `Db` 模块的配置符合要求")
+			return fmt.Errorf("请确保 `databases` 模块的配置符合要求")
 		}
 
 		var dbConf dbConfig
 		if err = json.Unmarshal(jsonData, &dbConf); err != nil {
-			return fmt.Errorf("请确保 `Db` 模块的配置符合要求")
+			return fmt.Errorf("请确保 `databases` 模块的配置符合要求")
 		}
 
 		// 默认值设置
@@ -79,25 +79,30 @@ func initFunc() error {
 			return fmt.Errorf("你正在加载数据库 [%s] 模块，但配置缺少，请先添加配置", dbConf.Name)
 		}
 
-		nowName := gzutil.Ternary(isDefault, "default", dbConf.Name)
 		var funcName string
 		if dbConf.UseGorm {
 			gdb, err := newGormDB(&dbConf)
 			if err != nil {
 				return err
 			}
-			gooze.SetDb(nowName, gdb, nil)
-			funcName = gzutil.Ternary(isDefault, "gooze.Gorm()", fmt.Sprintf(`gooze.Gorm("%s")`, nowName))
+			gooze.SetDb(dbConf.Name, gdb, nil)
+			if isDefault {
+				gooze.SetDb("default", gdb, nil)
+			}
+			funcName = gzutil.Ternary(isDefault, "gooze.Gorm()", fmt.Sprintf(`gooze.Gorm("%s")`, dbConf.Name))
 		} else {
 			sdb, err := newSqlxDB(&dbConf)
 			if err != nil {
 				return err
 			}
-			gooze.SetDb(nowName, nil, sdb)
-			funcName = gzutil.Ternary(isDefault, "gooze.Sqlx()", fmt.Sprintf(`gooze.Sqlx("%s")`, nowName))
+			gooze.SetDb(dbConf.Name, nil, sdb)
+			if isDefault {
+				gooze.SetDb("default", nil, sdb)
+			}
+			funcName = gzutil.Ternary(isDefault, "gooze.Sqlx()", fmt.Sprintf(`gooze.Sqlx("%s")`, dbConf.Name))
 		}
 
-		gzconsole.Echo.Infof("✅  提示: [%s] DB模块加载成功, 你可以使用 `%s` 进行数据操作\n", dbConf.Name, funcName)
+		gzconsole.Echo.Infof("✅  提示: [%s] DB 模块加载成功, 你可以使用 `%s` 进行数据操作\n", dbConf.Name, funcName)
 	}
 
 	return nil

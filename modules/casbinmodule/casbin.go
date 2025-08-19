@@ -7,6 +7,7 @@ import (
 	gormadapter "github.com/casbin/gorm-adapter/v3"
 	"github.com/soryetong/gooze-starter/gooze"
 	"github.com/soryetong/gooze-starter/gzconsole"
+	"github.com/soryetong/gooze-starter/pkg/gzutil"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 	"gorm.io/driver/mysql"
@@ -29,16 +30,16 @@ var casbinCmd = &cobra.Command{
 
 func initCasbin() error {
 	modePath := viper.GetString("Casbin.ModePath")
-
 	if modePath == "" {
 		return fmt.Errorf("Casbin.ModePath 为空，请检查配置文件")
 	}
 
 	dbName := viper.GetString("Casbin.DbName")
+	dbName = gzutil.Ternary(dbName == "", "default", dbName)
 	db := gooze.Gorm(dbName)
 	if db == nil {
 		if gooze.Sqlx(dbName) == nil {
-			return fmt.Errorf("Casbin 基于 DB 实现，请先加载至少一个 DB 模块")
+			return fmt.Errorf("Casbin 基于 Gorm 实现，请先加载至少一个 databases 模块")
 		}
 		// 复用 sqlx 的连接池创建一个 GORM 实例
 		open, err := gorm.Open(mysql.New(mysql.Config{
