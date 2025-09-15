@@ -6,7 +6,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/soryetong/gooze-starter/pkg/gzutil"
+	"github.com/w01fb0ss/gin-starter/pkg/gzutil"
 )
 
 // listNode 是 LRU 链表的节点

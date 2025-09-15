@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/gin-gonic/gin"
-	"github.com/soryetong/gooze-starter/pkg/gzerror"
+	"github.com/w01fb0ss/gin-starter/pkg/gzerror"
 	"github.com/spf13/cast"
 
 	"net/http"

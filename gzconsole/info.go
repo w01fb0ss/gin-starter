@@ -50,7 +50,7 @@ func Show(commands, globalCommands []CommandInfo) {
 
 	data := bannerData{
 		Desc:           color.New(color.FgWhite).Sprint("Elegant Go + Gin Scaffold，为了快速构建Go项目而生的应用脚手架"),
-		Docs:           "https://github.com/soryetong/gooze-starter",
+		Docs:           "https://github.com/w01fb0ss/gin-starter",
 		Author:         "soryetong@gmail.com",
 		Version:        "v0.0.1",
 		LabelDocs:      "Docs",

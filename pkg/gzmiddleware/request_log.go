@@ -10,9 +10,9 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
-	"github.com/soryetong/gooze-starter/gooze"
-	"github.com/soryetong/gooze-starter/pkg/gzauth"
-	"github.com/soryetong/gooze-starter/pkg/gzutil"
+	"github.com/w01fb0ss/gin-starter/gooze"
+	"github.com/w01fb0ss/gin-starter/pkg/gzauth"
+	"github.com/w01fb0ss/gin-starter/pkg/gzutil"
 	"go.uber.org/zap"
 )
 

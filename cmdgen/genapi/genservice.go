@@ -5,7 +5,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/soryetong/gooze-starter/pkg/gzutil"
+	"github.com/w01fb0ss/gin-starter/pkg/gzutil"
 )
 
 func (self *generator) MatchRoutesService(content string) (err error) {

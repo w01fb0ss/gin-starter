@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/soryetong/gooze-starter/pkg/gzutil"
+	"github.com/w01fb0ss/gin-starter/pkg/gzutil"
 	"github.com/spf13/viper"
 )
 

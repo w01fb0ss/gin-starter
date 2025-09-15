@@ -1,7 +1,7 @@
 package gencurd
 
 import (
-	"github.com/soryetong/gooze-starter/gzconsole"
+	"github.com/w01fb0ss/gin-starter/gzconsole"
 	"github.com/spf13/cobra"
 )
 

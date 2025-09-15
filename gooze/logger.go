@@ -9,7 +9,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/soryetong/gooze-starter/pkg/gzutil"
+	"github.com/w01fb0ss/gin-starter/pkg/gzutil"
 	"github.com/spf13/viper"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
