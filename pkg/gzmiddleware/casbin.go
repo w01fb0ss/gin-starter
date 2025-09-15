@@ -4,13 +4,13 @@ import (
 	"strings"
 
 	"github.com/gin-gonic/gin"
-	"github.com/soryetong/gooze-starter/gooze"
-	"github.com/soryetong/gooze-starter/gzconsole"
-	"github.com/soryetong/gooze-starter/pkg/gzauth"
-	"github.com/soryetong/gooze-starter/pkg/gzerror"
-	"github.com/soryetong/gooze-starter/pkg/gzutil"
 	"github.com/spf13/cast"
 	"github.com/spf13/viper"
+	"github.com/w01fb0ss/gin-starter/gooze"
+	"github.com/w01fb0ss/gin-starter/gzconsole"
+	"github.com/w01fb0ss/gin-starter/pkg/gzauth"
+	"github.com/w01fb0ss/gin-starter/pkg/gzerror"
+	"github.com/w01fb0ss/gin-starter/pkg/gzutil"
 )
 
 func Casbin() gin.HandlerFunc {

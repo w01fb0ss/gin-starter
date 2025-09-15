@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/soryetong/gooze-starter/gzconsole"
-	"github.com/soryetong/gooze-starter/pkg/gzutil"
 	"github.com/spf13/cobra"
+	"github.com/w01fb0ss/gin-starter/gzconsole"
+	"github.com/w01fb0ss/gin-starter/pkg/gzutil"
 	"golang.org/x/sync/errgroup"
 )
 

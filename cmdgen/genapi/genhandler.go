@@ -8,7 +8,7 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/soryetong/gooze-starter/pkg/gzutil"
+	"github.com/w01fb0ss/gin-starter/pkg/gzutil"
 )
 
 const handlerHeaderTemplate = `
@@ -16,13 +16,13 @@ package {{.PackageName}}
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/soryetong/gooze-starter/gooze"
+	"github.com/w01fb0ss/gin-starter/gooze"
 	{{- if .HasRestFul }}
 	"github.com/spf13/cast"
-	"github.com/soryetong/gooze-starter/pkg/gzutil"
+	"github.com/w01fb0ss/gin-starter/pkg/gzutil"
 	{{- end }}
 	{{- if .HasDto }}
-	"github.com/soryetong/gooze-starter/pkg/gzerror"
+	"github.com/w01fb0ss/gin-starter/pkg/gzerror"
 	"{{ .DtoPackagePath }}"
 	{{- end }}
 	"{{ .LogicPackagePath }}"

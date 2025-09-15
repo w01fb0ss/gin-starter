@@ -1,11 +1,11 @@
 package cmdgen
 
 import (
-	"github.com/soryetong/gooze-starter/cmdgen/genapi"
-	"github.com/soryetong/gooze-starter/cmdgen/gencurd"
-	"github.com/soryetong/gooze-starter/cmdgen/genmodel"
-	"github.com/soryetong/gooze-starter/gzconsole"
 	"github.com/spf13/cobra"
+	"github.com/w01fb0ss/gin-starter/cmdgen/genapi"
+	"github.com/w01fb0ss/gin-starter/cmdgen/gencurd"
+	"github.com/w01fb0ss/gin-starter/cmdgen/genmodel"
+	"github.com/w01fb0ss/gin-starter/gzconsole"
 )
 
 func init() {

@@ -6,9 +6,9 @@ import (
 	"time"
 
 	"github.com/golang-jwt/jwt/v5"
-	"github.com/soryetong/gooze-starter/gzconsole"
-	"github.com/soryetong/gooze-starter/pkg/gzutil"
 	"github.com/spf13/viper"
+	"github.com/w01fb0ss/gin-starter/gzconsole"
+	"github.com/w01fb0ss/gin-starter/pkg/gzutil"
 )
 
 var secretKey []byte

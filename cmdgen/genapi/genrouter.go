@@ -8,9 +8,9 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/soryetong/gooze-starter/cmdgen/config"
-	"github.com/soryetong/gooze-starter/gzconsole"
-	"github.com/soryetong/gooze-starter/pkg/gzutil"
+	"github.com/w01fb0ss/gin-starter/cmdgen/config"
+	"github.com/w01fb0ss/gin-starter/gzconsole"
+	"github.com/w01fb0ss/gin-starter/pkg/gzutil"
 )
 
 const routerContentTemplate = `
@@ -287,7 +287,7 @@ const enterGoTemplate = `package router
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/soryetong/gooze-starter/pkg/gzmiddleware"
+	"github.com/w01fb0ss/gin-starter/pkg/gzmiddleware"
 	"github.com/spf13/viper"
 	"net/http"
 )

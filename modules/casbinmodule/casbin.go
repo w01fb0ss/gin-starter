@@ -5,11 +5,11 @@ import (
 
 	"github.com/casbin/casbin/v2"
 	gormadapter "github.com/casbin/gorm-adapter/v3"
-	"github.com/soryetong/gooze-starter/gooze"
-	"github.com/soryetong/gooze-starter/gzconsole"
-	"github.com/soryetong/gooze-starter/pkg/gzutil"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
+	"github.com/w01fb0ss/gin-starter/gooze"
+	"github.com/w01fb0ss/gin-starter/gzconsole"
+	"github.com/w01fb0ss/gin-starter/pkg/gzutil"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )

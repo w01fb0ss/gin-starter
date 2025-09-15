@@ -6,7 +6,7 @@
 
 <p align="center"> 它是站在巨人的肩膀上而实现的，使用了大量优质的第三方包，介意请慎用</p>
 
-可以先去 [gooze-starter 文档中心](https://github.com/soryetong/gooze-starter) 查看文档说明
+可以先去 [gooze-starter 文档中心](https://github.com/w01fb0ss/gin-starter) 查看文档说明
 
 ## 特性
 * **超低学习成本与模块化解耦**：基于流行的第三方库封装，内置大量服务与工具，把常用的MySQL、HTTP、Redis、Mongo等以模块化的方式按需加载，让你聚焦业务逻辑的实现。
@@ -70,7 +70,7 @@ cd your_project_name
 2. 拉取 `gooze`
 
 ```bash
-go get -u github.com/soryetong/gooze-starter
+go get -u github.com/w01fb0ss/gin-starter
 ```
 
 3. 创建 `main.go`
@@ -79,7 +79,7 @@ go get -u github.com/soryetong/gooze-starter
 package main
 
 import (
-	"github.com/soryetong/gooze-starter"
+	"github.com/w01fb0ss/gin-starter"
 )
 
 func main() {
@@ -95,7 +95,7 @@ go mod tidy
 
 5. 其他的目录、文件，你都可以按照你的需求和爱好来创建
 
-更多信息，请查看 [gooze-starter 文档中心](https://github.com/soryetong/gooze-starter)
+更多信息，请查看 [gooze-starter 文档中心](https://github.com/w01fb0ss/gin-starter)
 
 ## 贡献
 

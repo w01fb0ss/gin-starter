@@ -6,12 +6,12 @@ import (
 	casbinV2 "github.com/casbin/casbin/v2"
 	"github.com/go-redis/redis/v8"
 	"github.com/jmoiron/sqlx"
-	"github.com/soryetong/gooze-starter/gzconsole"
-	"github.com/soryetong/gooze-starter/pkg/gzcache"
+	"github.com/w01fb0ss/gin-starter/gzconsole"
+	"github.com/w01fb0ss/gin-starter/pkg/gzcache"
 	"go.mongodb.org/mongo-driver/mongo"
 	"gorm.io/gorm"
 
-	_ "github.com/soryetong/gooze-starter/cmdgen"
+	_ "github.com/w01fb0ss/gin-starter/cmdgen"
 )
 
 var (

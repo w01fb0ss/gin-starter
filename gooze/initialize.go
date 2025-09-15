@@ -5,12 +5,12 @@ import (
 	"os"
 	"time"
 
-	"github.com/soryetong/gooze-starter/gzconsole"
-	"github.com/soryetong/gooze-starter/pkg/gzcache"
-	"github.com/soryetong/gooze-starter/pkg/gzutil"
 	"github.com/spf13/cobra"
 	"github.com/spf13/pflag"
 	"github.com/spf13/viper"
+	"github.com/w01fb0ss/gin-starter/gzconsole"
+	"github.com/w01fb0ss/gin-starter/pkg/gzcache"
+	"github.com/w01fb0ss/gin-starter/pkg/gzutil"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 )

@@ -4,10 +4,10 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/soryetong/gooze-starter/gooze"
-	"github.com/soryetong/gooze-starter/gzconsole"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
+	"github.com/w01fb0ss/gin-starter/gooze"
+	"github.com/w01fb0ss/gin-starter/gzconsole"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
