@@ -16,7 +16,7 @@ package {{.PackageName}}
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/w01fb0ss/gin-starter/gooze"
+	"github.com/w01fb0ss/gin-starter/base"
 	{{- if .HasRestFul }}
 	"github.com/spf13/cast"
 	"github.com/w01fb0ss/gin-starter/pkg/gzutil"
@@ -42,39 +42,39 @@ const handlerContentTemplate = `
 // @Param {{ if eq .Method "get" }}query{{ else }}body{{ end }} {{ .DtoPackageName }}.{{ .RequestType }}
 {{- end }}
 // @Success 200 {{if .ResponseType}}{object} {{.DtoPackageName}}.{{.ResponseType}} {{ else }}string success {{ end }}
-// @Failure 200 {object} gooze.Response 根据Code表示不同类型的错误
+// @Failure 200 {object} base.Response 根据Code表示不同类型的错误
 // @Router {{ .Path }} [{{ .Method}}]
 func {{ .HandlerName }}(ctx *gin.Context) {
 {{if .PathParam}} id := cast.ToInt64(ctx.Param("{{.PathParam}}"))
 	if !gzutil.IsValidNumber(id) {
-		gooze.FailWithMessage(ctx, "参数错误")
+		base.FailWithMessage(ctx, "参数错误")
 		return
 	}
 {{end}}{{if .RequestType}}	var req {{.DtoPackageName}}.{{.RequestType}}
 	if err := ctx.ShouldBind(&req); err != nil {
-		gooze.FailWithMessage(ctx, gzerror.Trans(err))
+		base.FailWithMessage(ctx, gzerror.Trans(err))
 		return
 	}
 
 	{{if .ResponseType}}resp, err := {{ .LogicPackageName}}.{{ .LogicFuncName}}(ctx{{if .PathParam}}, id{{end}}, &req)
 	if err != nil {
-		gooze.FailWithMessage(ctx, err.Error())
+		base.FailWithMessage(ctx, err.Error())
 		return
 	}
-	gooze.Success(ctx, resp){{else}}if err := {{ .LogicPackageName}}.{{ .LogicFuncName}}(ctx{{if .PathParam}}, id{{end}}, &req); err != nil {
-		gooze.FailWithMessage(ctx, err.Error())
+	base.Success(ctx, resp){{else}}if err := {{ .LogicPackageName}}.{{ .LogicFuncName}}(ctx{{if .PathParam}}, id{{end}}, &req); err != nil {
+		base.FailWithMessage(ctx, err.Error())
 		return
 	}
-	gooze.Success(ctx, nil){{end}}{{else}}{{if .ResponseType}}resp, err := {{ .LogicPackageName}}.{{ .LogicFuncName}}(ctx{{if .PathParam}}, id{{end}})
+	base.Success(ctx, nil){{end}}{{else}}{{if .ResponseType}}resp, err := {{ .LogicPackageName}}.{{ .LogicFuncName}}(ctx{{if .PathParam}}, id{{end}})
 	if err != nil {
-		gooze.FailWithMessage(ctx, err.Error())
+		base.FailWithMessage(ctx, err.Error())
 		return
 	}
-	gooze.Success(ctx, resp){{else}}if err := {{ .LogicPackageName}}.{{ .LogicFuncName}}(ctx{{if .PathParam}}, id{{end}}); err != nil {
-		gooze.FailWithMessage(ctx, err.Error())
+	base.Success(ctx, resp){{else}}if err := {{ .LogicPackageName}}.{{ .LogicFuncName}}(ctx{{if .PathParam}}, id{{end}}); err != nil {
+		base.FailWithMessage(ctx, err.Error())
 		return
 	}
-	gooze.Success(ctx, nil){{end}}{{end}}
+	base.Success(ctx, nil){{end}}{{end}}
 }
 `
 

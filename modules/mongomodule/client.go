@@ -6,7 +6,7 @@ import (
 
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
-	"github.com/w01fb0ss/gin-starter/gooze"
+	"github.com/w01fb0ss/gin-starter/base"
 	"github.com/w01fb0ss/gin-starter/gzconsole"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
@@ -19,7 +19,7 @@ func init() {
 var mongoCmd = &cobra.Command{
 	Use:   "mongoDB",
 	Short: "Init MongoDB",
-	Long:  `加载MongoDB模块之后，可以通过 gooze.Mdb 进行数据操作`,
+	Long:  `加载MongoDB模块之后，可以通过 base.Mdb 进行数据操作`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		url := viper.GetString("Mongo.Url")
 		if url == "" {
@@ -42,7 +42,7 @@ func initClient(url string) error {
 		return fmt.Errorf("MongoDB连接失败: %w", err)
 	}
 
-	gooze.Mdb = client
-	gzconsole.Echo.Info("✅ 提示: [Mongo] 模块加载成功, 你可以使用 `gooze.Mdb` 进行数据操作\n")
+	base.Mdb = client
+	gzconsole.Echo.Info("✅ 提示: [Mongo] 模块加载成功, 你可以使用 `base.Mdb` 进行数据操作\n")
 	return nil
 }

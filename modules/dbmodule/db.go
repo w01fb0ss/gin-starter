@@ -6,7 +6,7 @@ import (
 
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
-	"github.com/w01fb0ss/gin-starter/gooze"
+	"github.com/w01fb0ss/gin-starter/base"
 	"github.com/w01fb0ss/gin-starter/gzconsole"
 	"github.com/w01fb0ss/gin-starter/pkg/gzutil"
 )
@@ -85,21 +85,21 @@ func initFunc() error {
 			if err != nil {
 				return err
 			}
-			gooze.SetDb(dbConf.Name, gdb, nil)
+			base.SetDb(dbConf.Name, gdb, nil)
 			if isDefault {
-				gooze.SetDb("default", gdb, nil)
+				base.SetDb("default", gdb, nil)
 			}
-			funcName = gzutil.Ternary(isDefault, "gooze.Gorm()", fmt.Sprintf(`gooze.Gorm("%s")`, dbConf.Name))
+			funcName = gzutil.Ternary(isDefault, "base.Gorm()", fmt.Sprintf(`base.Gorm("%s")`, dbConf.Name))
 		} else {
 			sdb, err := newSqlxDB(&dbConf)
 			if err != nil {
 				return err
 			}
-			gooze.SetDb(dbConf.Name, nil, sdb)
+			base.SetDb(dbConf.Name, nil, sdb)
 			if isDefault {
-				gooze.SetDb("default", nil, sdb)
+				base.SetDb("default", nil, sdb)
 			}
-			funcName = gzutil.Ternary(isDefault, "gooze.Sqlx()", fmt.Sprintf(`gooze.Sqlx("%s")`, dbConf.Name))
+			funcName = gzutil.Ternary(isDefault, "base.Sqlx()", fmt.Sprintf(`base.Sqlx("%s")`, dbConf.Name))
 		}
 
 		gzconsole.Echo.Infof("✅  提示: [%s] DB 模块加载成功, 你可以使用 `%s` 进行数据操作\n", dbConf.Name, funcName)

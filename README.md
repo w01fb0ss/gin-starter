@@ -1,4 +1,4 @@
-<h1 align="center">gooze-starter</h1>
+<h1 align="center">gin-starter</h1>
 
 <p align="center"> 这是一个为了快速构建一个 Go 项目而生的 Go+Gin 项目脚手架</p>
 
@@ -6,7 +6,7 @@
 
 <p align="center"> 它是站在巨人的肩膀上而实现的，使用了大量优质的第三方包，介意请慎用</p>
 
-可以先去 [gooze-starter 文档中心](https://github.com/w01fb0ss/gin-starter) 查看文档说明
+可以先去 [gin-starter 文档中心](https://github.com/w01fb0ss/gin-starter) 查看文档说明
 
 ## 特性
 * **超低学习成本与模块化解耦**：基于流行的第三方库封装，内置大量服务与工具，把常用的MySQL、HTTP、Redis、Mongo等以模块化的方式按需加载，让你聚焦业务逻辑的实现。
@@ -33,16 +33,16 @@
 可以使用以下命令创建一个新的 Go 项目：
 
 ```bash
-go install github.com/soryetong/gooze-cli@latest
+go install github.com/soryetong/gin-cli@latest
 ```
 
 然后，**进入你想存放的项目的目录中**，运行以下命令：
 
 ```bash
-gooze-cli init
+gin-cli init
 ```
 
-> 如果`go install` 成功，却提示找不到 `gooze-cli` 命令，那么需要先添加环境变量
+> 如果`go install` 成功，却提示找不到 `gin-cli` 命令，那么需要先添加环境变量
 
 运行该命令后，会提示你输入项目名、项目类型等，按照提示输入即可
 
@@ -51,9 +51,9 @@ gooze-cli init
 运行完成后，会按照 Go 社区的项目最佳实践来生成一个优雅的 Go 项目结构，并生成相应的代码文件。
 
 
-关于 `gooze-cli` 的更多信息，请查看 [GitHub-gooze-cli](https://github.com/soryetong/gooze-cli)
+关于 `gin-cli` 的更多信息，请查看 [GitHub-gin-cli](https://github.com/soryetong/gin-cli)
 
-**如果你认为 `gooze-cli` 生成的目录结构你不满意，那你完全可以使用第二种自行生成**
+**如果你认为 `gin-cli` 生成的目录结构你不满意，那你完全可以使用第二种自行生成**
 <br>
 
 ### 2. 自行使用
@@ -83,7 +83,7 @@ import (
 )
 
 func main() {
-	gooze.Run()
+	base.Run()
 }
 ```
 
@@ -95,7 +95,7 @@ go mod tidy
 
 5. 其他的目录、文件，你都可以按照你的需求和爱好来创建
 
-更多信息，请查看 [gooze-starter 文档中心](https://github.com/w01fb0ss/gin-starter)
+更多信息，请查看 [gin-starter 文档中心](https://github.com/w01fb0ss/gin-starter)
 
 ## 贡献
 
@@ -103,6 +103,6 @@ go mod tidy
 
 ## 许可证
 
-gooze-starter 是根据MIT许可证发布的。有关更多信息，请参见 [LICENSE](LICENSE) 文件。
+gin-starter 是根据MIT许可证发布的。有关更多信息，请参见 [LICENSE](LICENSE) 文件。
 
 <br>

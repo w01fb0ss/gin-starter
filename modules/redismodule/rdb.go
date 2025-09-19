@@ -9,7 +9,7 @@ import (
 	"github.com/go-redis/redis/v8"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
-	"github.com/w01fb0ss/gin-starter/gooze"
+	"github.com/w01fb0ss/gin-starter/base"
 	"github.com/w01fb0ss/gin-starter/gzconsole"
 )
 
@@ -20,7 +20,7 @@ func init() {
 var redisCmd = &cobra.Command{
 	Use:    "redis",
 	Short:  "Init Redis",
-	Long:   `加载Redis模块之后，可以通过 gooze.Rdb 进行数据操作`,
+	Long:   `加载Redis模块之后，可以通过 base.Rdb 进行数据操作`,
 	Hidden: true,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		addr := viper.GetString("Redis.Addr")
@@ -37,8 +37,8 @@ var redisCmd = &cobra.Command{
 			viper.GetBool("Redis.IsCluster"),
 		)
 		if err == nil {
-			gooze.Rdb = conn
-			gzconsole.Echo.Infof("✅  提示: [Redis] 模块加载成功, 你可以使用 `gooze.Rdb` 进行数据操作\n")
+			base.Rdb = conn
+			gzconsole.Echo.Infof("✅  提示: [Redis] 模块加载成功, 你可以使用 `base.Rdb` 进行数据操作\n")
 		}
 
 		return err

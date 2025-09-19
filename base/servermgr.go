@@ -1,4 +1,4 @@
-package gooze
+package base
 
 import (
 	"fmt"
@@ -18,7 +18,7 @@ var serviceMgrCmd = &cobra.Command{
 	RunE: func(cmd *cobra.Command, args []string) error {
 		defer closeServiceMgr()
 		if len(serviceList) <= 0 {
-			return fmt.Errorf("请务必通过实现接口 `gooze.IService` 注册你要启动的服务")
+			return fmt.Errorf("请务必通过实现接口 `base.IService` 注册你要启动的服务")
 		}
 
 		var eg errgroup.Group

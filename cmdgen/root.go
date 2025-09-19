@@ -18,7 +18,7 @@ func init() {
 var genCmd = &cobra.Command{
 	Use:   "gen",
 	Short: "Code generator entry",
-	Long: `Code generation entry point for gooze-starter.
+	Long: `Code generation entry point for gin-starter.
 		Available Subcommands:
 		  -  api       Generate Gin route & handler based on .api spec file
 			  --src       Path to the .api description file (required)

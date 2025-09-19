@@ -15,18 +15,18 @@ const serverContentTemplate = `
 package {{.PackageName}}
 
 import (
-	"github.com/w01fb0ss/gin-starter/gooze"
+	"github.com/w01fb0ss/gin-starter/base"
 	"github.com/w01fb0ss/gin-starter/pkg/gzutil"
 	"github.com/w01fb0ss/gin-starter/modules/httpmodule"
 	"{{ .RouterPackagePath}}"
 )
 
 func init() {
-	gooze.RegisterService(&{{ .ServerName}}{})
+	base.RegisterService(&{{ .ServerName}}{})
 }
 
 type {{ .ServerName}} struct {
-	*gooze.IServer
+	*base.IServer
 
 	httpModule httpmodule.IHttp
 }
@@ -46,7 +46,7 @@ func (self *{{ .ServerName}}) OnStart() (err error) {
 func (self *{{ .ServerName}}) exitCallback() *gzutil.OrderlyMap {
 	callback := gzutil.NewOrderlyMap()
 	callback.Append("exit", func() {
-		gooze.Log.Info("这是程序退出后的回调函数, 执行你想要执行的逻辑, 无逻辑可以直接删除这段代码")
+		base.Log.Info("这是程序退出后的回调函数, 执行你想要执行的逻辑, 无逻辑可以直接删除这段代码")
 	})
 	
 	return callback
@@ -76,9 +76,9 @@ func (self *generator) GenServer() (err error) {
 	data := map[string]interface{}{
 		"PackageName":       self.serverPackageName,
 		"ServerName":        serverName,
-		"ServerAddr":        "gooze.Config.App.Addr",
+		"ServerAddr":        "base.Config.App.Addr",
 		"HasViper":          false,
-		"Timeout":           "gooze.Config.App.Timeout",
+		"Timeout":           "base.Config.App.Timeout",
 		"RouterPackagePath": filepath.Join(self.packageName, self.routerPackagePath),
 	}
 	if err = contentTmpl.Execute(&builder, data); err != nil {

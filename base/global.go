@@ -1,4 +1,4 @@
-package gooze
+package base
 
 import (
 	"sync"

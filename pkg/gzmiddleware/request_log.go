@@ -10,7 +10,7 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
-	"github.com/w01fb0ss/gin-starter/gooze"
+	"github.com/w01fb0ss/gin-starter/base"
 	"github.com/w01fb0ss/gin-starter/pkg/gzauth"
 	"github.com/w01fb0ss/gin-starter/pkg/gzutil"
 	"go.uber.org/zap"
@@ -78,13 +78,13 @@ func RequestLog() gin.HandlerFunc {
 
 		elapsedMs := time.Since(startTime).Seconds() * 1000
 		logData.Elapsed = fmt.Sprintf("%.2f", elapsedMs)
-		resp := &gooze.Response{}
+		resp := &base.Response{}
 		_ = json.Unmarshal([]byte(writer.body.String()), resp)
 		logData.StatusCode = resp.Code
 		logData.Msg = resp.Msg
 		respData, _ := json.Marshal(resp.Data)
 		logData.Response = string(respData)
-		gooze.Log.Info("[RequestLog]请求响应日志", zap.Any("logData", logData))
+		base.Log.Info("[RequestLog]请求响应日志", zap.Any("logData", logData))
 
 		// 非 Get 请求把数据放入Context中
 		if ctx.Request.Method != "GET" {
