@@ -84,12 +84,12 @@ func RequestLog() gin.HandlerFunc {
 		logData.Msg = resp.Msg
 		respData, _ := json.Marshal(resp.Data)
 		logData.Response = string(respData)
-		base.Log.Info("[RequestLog]请求响应日志", zap.Any("logData", logData))
+		// base.Log.Info("[RequestLog]请求响应日志", zap.Any("logData", logData))
 
 		// 非 Get 请求把数据放入Context中
-		if ctx.Request.Method != "GET" {
-			ctx.Set("requestLogData", &logData)
-		}
+		// if ctx.Request.Method != "GET" {
+		// 	ctx.Set("requestLogData", &logData)
+		// }
 	}
 }
 
