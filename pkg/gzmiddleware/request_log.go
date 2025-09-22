@@ -13,7 +13,6 @@ import (
 	"github.com/w01fb0ss/gin-starter/base"
 	"github.com/w01fb0ss/gin-starter/pkg/gzauth"
 	"github.com/w01fb0ss/gin-starter/pkg/gzutil"
-	"go.uber.org/zap"
 )
 
 type RequestLogData struct {
