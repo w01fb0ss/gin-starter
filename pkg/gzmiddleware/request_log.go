@@ -87,8 +87,9 @@ func RequestLog() gin.HandlerFunc {
 
 		// 非 Get 请求把数据放入Context中
 		// if ctx.Request.Method != "GET" {
-		// 	ctx.Set("requestLogData", &logData)
+		//
 		// }
+		ctx.Set("RequestLogData", logData)
 	}
 }
 
