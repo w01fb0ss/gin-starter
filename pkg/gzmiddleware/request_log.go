@@ -89,7 +89,7 @@ func RequestLog() gin.HandlerFunc {
 		// if ctx.Request.Method != "GET" {
 		//
 		// }
-		ctx.Set("RequestLogData", logData)
+		ctx.Set("RequestLogData", &logData)
 	}
 }
 
