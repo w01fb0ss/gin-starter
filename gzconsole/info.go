@@ -45,7 +45,7 @@ type bannerData struct {
 
 func Show(commands, globalCommands []CommandInfo) {
 	fmt.Println("\n")
-	title := figure.NewFigure("Gooze Starter", "", true)
+	title := figure.NewFigure("Gin Starter", "", true)
 	color.New(color.FgHiGreen).Println(title.String())
 
 	data := bannerData{
